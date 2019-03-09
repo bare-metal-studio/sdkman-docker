@@ -1,5 +1,8 @@
 FROM ubuntu:16.04
 
+LABEL version="1.0"
+LABEL description="Install any package using SDKMan"
+
 ENV SDKMAN_DIR /root/.sdkman
 ENV GRAILS_VERSION 3.3.9
 ENV JAVA_VERSION 8.0.201-oracle
