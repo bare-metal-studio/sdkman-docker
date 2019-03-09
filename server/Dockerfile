@@ -9,13 +9,12 @@ ENV JAVA_VERSION 8.0.201-oracle
 
 RUN ["mkdir", "-p", "/apps/home"] 
 RUN ls -la /apps/home
-COPY src/ /apps/home
+COPY server/src/ /apps/home
 RUN apt-get update && apt-get install -y zip curl
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN curl -s "https://get.sdkman.io" | bash
 RUN chmod a+x "$SDKMAN_DIR/bin/sdkman-init.sh"
 
-#Donbeave
 RUN set -x \
     && echo "sdkman_auto_answer=true" > $SDKMAN_DIR/etc/config \
     && echo "sdkman_auto_selfupdate=false" >> $SDKMAN_DIR/etc/config \
