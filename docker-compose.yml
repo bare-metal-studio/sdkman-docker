@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+ maria:
+  image: "mariadb:10.3-bionic"
+  restart: always
+  environment:
+   MYSQL_ROOT_PASSWORD: 1234jerri
+
+ api:
+  build: ./server
+  restart: always
+  volumes:
+   - ./server/src:/apps/home
+  ports:
+   - 8099:8080
